@@ -68,6 +68,16 @@ public:
    static const uint32_t Magenta;
    static const uint32_t Cyan;
    static const uint32_t Yellow;
+   static const uint32_t Orange;
+   static const uint32_t Light_Gray;
+   static const uint32_t Gray;
+   static const uint32_t Dark_Gray;
+   static const uint32_t Dark_Red;
+   static const uint32_t Dark_Green;
+   static const uint32_t Dark_Blue;
+   static const uint32_t Purple;
+   static const uint32_t Mint;
+   static const uint32_t Golden;
    static const uint32_t Transparent;
    static const uint32_t ERRCOL;
 

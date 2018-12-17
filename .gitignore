@@ -8,3 +8,6 @@ tools/lcdtestpattern/lcdtestpattern
 tools/showpic/showpic
 tools/showtext/showtext
 tools/skintest/skintest
+
+git-*
+go_*

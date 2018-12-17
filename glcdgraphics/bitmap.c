@@ -35,6 +35,16 @@ const uint32_t cColor::Blue        = 0xFF0000FF;
 const uint32_t cColor::Magenta     = 0xFFFF00FF;
 const uint32_t cColor::Cyan        = 0xFF00FFFF;
 const uint32_t cColor::Yellow      = 0xFFFFFF00;
+const uint32_t cColor::Orange      = 0xFFFF4000;
+const uint32_t cColor::Light_Gray  = 0xFFBFBFBF;
+const uint32_t cColor::Gray        = 0xFF7F7F7F;
+const uint32_t cColor::Dark_Gray   = 0xFF3F3F3F;
+const uint32_t cColor::Dark_Red    = 0xFF7F0000;
+const uint32_t cColor::Dark_Green  = 0xFF00FF00;
+const uint32_t cColor::Dark_Blue   = 0xFF00007F;
+const uint32_t cColor::Purple      = 0xFF7F007F;
+const uint32_t cColor::Mint        = 0xFF007F7F;
+const uint32_t cColor::Golden      = 0xFF7F7F00;
 const uint32_t cColor::Transparent = GRAPHLCD_Transparent;
 const uint32_t cColor::ERRCOL      = GRAPHLCD_ERRCOL;
 
@@ -47,6 +57,16 @@ cColor cColor::ParseColor(std::string col) {
     else if (col == "blue")        return cColor(cColor::Blue);
     else if (col == "magenta")     return cColor(cColor::Magenta);
     else if (col == "cyan")        return cColor(cColor::Cyan);
+    else if (col == "yellow")      return cColor(cColor::Yellow);
+    else if (col == "orange")      return cColor(cColor::Orange);
+    else if (col == "light_gray")  return cColor(cColor::Light_Gray);
+    else if (col == "gray")        return cColor(cColor::Gray);
+    else if (col == "dark_gray")   return cColor(cColor::Dark_Gray);
+    else if (col == "dark_red")    return cColor(cColor::Dark_Red);
+    else if (col == "dark_green")  return cColor(cColor::Dark_Green);
+    else if (col == "dark_blue")   return cColor(cColor::Dark_Blue);
+    else if (col == "purple")      return cColor(cColor::Purple);
+    else if (col == "golden")      return cColor(cColor::Golden);
     else if (col == "yellow")      return cColor(cColor::Yellow);
     else if (col == "transparent") return cColor(cColor::Transparent);
     else if (col.substr(0, 2) == "0x" || col.substr(0, 2) == "0X") {

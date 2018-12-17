@@ -28,6 +28,7 @@ based on the graphlcd plugin for the Video Disc Recorder
     futaba md166 driver by     Andreas Brachold <vdr07 AT deltab de>
     usbserlcd driver by        Manuel Reimer <manuel.reimer AT gmx.de>
     st7565r-reel driver by     Georg Acher, BayCom GmbH based on simlcd.c by Carsten Siebholz, ported by Ufuk Altinkaynak
+    vusolo4k oled driver by    redblue <redblue.pkt at orange pl>
 
 Project's homepage: https://projects.vdr-developer.org/projects/graphlcd-base
 GIT repo: https://projects.vdr-developer.org/git/graphlcd-base.git

@@ -221,11 +221,7 @@ void cDriverVUSOLO4K::Refresh(bool refreshAll)
 		}
 		unsigned char* row_pointers_bit_shift = (unsigned char*) &newLCD[0];
 		{
-			int w=-1;
-			w = write(fd, row_pointers_bit_shift, height * width * 4);
-			printf("write ret : %d\n",w);
-			//ret = ioctl(lcdfd, 0);
-			printf("write to /dev/dbox/oled0 : %d\n",w);
+			write(fd, row_pointers_bit_shift, height * width * 4);
 		}
 	}
 }

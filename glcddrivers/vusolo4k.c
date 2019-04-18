@@ -229,41 +229,7 @@ void cDriverVUSOLO4K::Refresh(bool refreshAll)
 void cDriverVUSOLO4K::SetBrightness(unsigned int brightness)
 {
 	int value = 0;
-	switch(brightness) {
-		case 0:
-			value = 0;
-			break;
-		case 1:
-			value = 25;
-			break;
-		case 2:
-			value = 51;
-			break;
-		case 3:
-			value = 76;
-			break;
-		case 4:
-			value = 102;
-			break;
-		case 5:
-			value = 127;
-			break;
-		case 6:
-			value = 153;
-			break;
-		case 7:
-			value = 178;
-			break;
-		case 8:
-			value = 204;
-			break;
-		case 9:
-			value = 229;
-			break;
-		case 10:
-			value = 255;
-			break;
-	}
+	value = 255 * brightness / 10;
 
 	FILE *f = fopen("/proc/stb/lcd/oled_brightness", "w");
 	if (!f)

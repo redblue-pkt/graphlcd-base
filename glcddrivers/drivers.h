@@ -56,8 +56,8 @@ enum eDriver
 #ifdef HAVE_DRIVER_ILI9341
     kDriverILI9341       = 22,
 #endif
-#ifdef HAVE_DRIVER_VUSOLO4K
-    kDriverVUSOLO4K      = 23,
+#ifdef HAVE_DRIVER_VUPLUS4K
+    kDriverVUPLUS4K      = 23,
 #endif
     kDriverUSBserLCD     = 24,
     kDriverST7565RReel   = 25,

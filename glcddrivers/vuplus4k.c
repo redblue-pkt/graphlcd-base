@@ -1,12 +1,12 @@
 /*
  * GraphLCD driver library
  *
- * vusolo4k.c  -  VUSOLO4K OLED driver class
+ * vuplus4k.c  -  VUPLUS4K OLED driver class (vusolo4k, vuduo4k)
  *
  * This file is released under the GNU General Public License. Refer
  * to the COPYING file distributed with this package.
  *
- * (c) redblue 2018
+ * (c) redblue 2019
  */
 
 
@@ -23,18 +23,18 @@
 
 #include "common.h"
 #include "config.h"
-#include "vusolo4k.h"
+#include "vuplus4k.h"
 
 namespace GLCD
 {
 
-cDriverVUSOLO4K::cDriverVUSOLO4K(cDriverConfig * config)
+cDriverVUPLUS4K::cDriverVUPLUS4K(cDriverConfig * config)
 :	cDriver(config),
 	fd(-1)
 {
 }
 
-cDriverVUSOLO4K::~cDriverVUSOLO4K()
+cDriverVUPLUS4K::~cDriverVUPLUS4K()
 {
 	DeInit();
 }
@@ -52,7 +52,7 @@ int lcd_read_value(const char *filename)
 	return value;
 }
 
-int cDriverVUSOLO4K::Init()
+int cDriverVUPLUS4K::Init()
 {
 	int x;
 
@@ -105,7 +105,7 @@ int cDriverVUSOLO4K::Init()
 	if (oldLCD)
 		memset(oldLCD, 0, width * height * 4);
 
-	syslog(LOG_INFO, "%s: current lcd is %dx%d, %dbpp, vusolo4k lcd device was opened successfully\n", config->name.c_str(), width, height, bpp);
+	syslog(LOG_INFO, "%s: current lcd is %dx%d, %dbpp, vuplus4k lcd device was opened successfully\n", config->name.c_str(), width, height, bpp);
 
 	*oldConfig = *config;
 
@@ -113,11 +113,11 @@ int cDriverVUSOLO4K::Init()
 	Clear();
 	//Refresh(true);
 
-	syslog(LOG_INFO, "%s: VUSOLO4K initialized.\n", config->name.c_str());
+	syslog(LOG_INFO, "%s: VUPLUS4K initialized.\n", config->name.c_str());
 	return 0;
 }
 
-int cDriverVUSOLO4K::DeInit()
+int cDriverVUPLUS4K::DeInit()
 {
 	if (newLCD)
 	{
@@ -137,7 +137,7 @@ int cDriverVUSOLO4K::DeInit()
 	return 0;
 }
 
-int cDriverVUSOLO4K::CheckSetup()
+int cDriverVUPLUS4K::CheckSetup()
 {
 	if (config->width != oldConfig->width ||
 		config->height != oldConfig->height)
@@ -157,12 +157,12 @@ int cDriverVUSOLO4K::CheckSetup()
 	return 0;
 }
 
-void cDriverVUSOLO4K::Clear()
+void cDriverVUPLUS4K::Clear()
 {
 	memset(newLCD, 0, width * height);
 }
 
-void cDriverVUSOLO4K::SetPixel(int x, int y, uint32_t data)
+void cDriverVUPLUS4K::SetPixel(int x, int y, uint32_t data)
 {
 	if (x >= width || y >= height)
 		return;
@@ -193,7 +193,7 @@ void cDriverVUSOLO4K::SetPixel(int x, int y, uint32_t data)
 	row_pointers_bit_shift[row_pointers_2_ptr+3]=0xff;
 }
 
-void cDriverVUSOLO4K::Refresh(bool refreshAll)
+void cDriverVUPLUS4K::Refresh(bool refreshAll)
 {
 	int i;
 	char fileName[256];
@@ -226,7 +226,7 @@ void cDriverVUSOLO4K::Refresh(bool refreshAll)
 	}
 }
 
-void cDriverVUSOLO4K::SetBrightness(unsigned int brightness)
+void cDriverVUPLUS4K::SetBrightness(unsigned int brightness)
 {
 	int value = 0;
 	value = 255 * brightness / 10;

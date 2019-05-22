@@ -10,8 +10,8 @@
  */
 
 
-#ifndef _GLCDDRIVERS_VUSOLO4K_H_
-#define _GLCDDRIVERS_VUSOLO4K_H_
+#ifndef _GLCDDRIVERS_VUPLUS4K_H_
+#define _GLCDDRIVERS_VUPLUS4K_H_
 
 #include "driver.h"
 
@@ -33,7 +33,7 @@ namespace GLCD
 
 class cDriverConfig;
 
-class cDriverVUSOLO4K : public cDriver
+class cDriverVUPLUS4K : public cDriver
 {
 private:
 	int fd;
@@ -44,8 +44,8 @@ private:
 	int CheckSetup();
 
 public:
-	cDriverVUSOLO4K(cDriverConfig * config);
-	virtual ~cDriverVUSOLO4K();
+	cDriverVUPLUS4K(cDriverConfig * config);
+	virtual ~cDriverVUPLUS4K();
 
 	virtual int Init();
 	virtual int DeInit();

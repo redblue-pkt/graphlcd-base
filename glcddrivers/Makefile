@@ -25,9 +25,9 @@ LIBS += $(shell pkg-config --libs libhid)
 DEFINES += -DHAVE_LIBHID
 endif
 
-ifdef HAVE_DRIVER_VUSOLO4K
-    OBJS += vusolo4k.o
-    DEFINES += -DHAVE_DRIVER_VUSOLO4K
+ifdef HAVE_DRIVER_VUPLUS4K
+    OBJS += vuplus4k.o
+    DEFINES += -DHAVE_DRIVER_VUPLUS4K
 endif
 
 ifeq ($(shell pkg-config --exists libusb && echo 1), 1)

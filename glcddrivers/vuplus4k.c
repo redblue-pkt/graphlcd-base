@@ -66,6 +66,25 @@ int cDriverVUPLUS4K::Init()
 
 	bpp = lcd_read_value(BPP);
 
+	switch (bpp)
+	{
+		case 8:
+			stride_bpp_value = 1;
+			break;
+		case 15:
+		case 16:
+			stride_bpp_value = 2;
+			break;
+		case 24:
+		case 32:
+			stride_bpp_value = 4;
+			break;
+		default:
+			stride_bpp_value = (bpp + 7) / 8;
+	}
+
+	stride = width * stride_bpp_value;
+
 	for (unsigned int i = 0; i < config->options.size(); i++)
 	{
 		if (config->options[i].name == "")
@@ -98,12 +117,12 @@ int cDriverVUPLUS4K::Init()
 		printf("failed to set lcd bin mode\n");
 	}
 
-	newLCD = new uint16_t[width * height * 4];
+	newLCD = new uint16_t[height * stride];
 	if (newLCD)
-		memset(newLCD, 0, width * height * 4);
-	oldLCD = new uint16_t[width * height * 4];
+		memset(newLCD, 0, height * stride);
+	oldLCD = new uint16_t[height * stride];
 	if (oldLCD)
-		memset(oldLCD, 0, width * height * 4);
+		memset(oldLCD, 0, height * stride);
 
 	syslog(LOG_INFO, "%s: current lcd is %dx%d, %dbpp, vuplus4k lcd device was opened successfully\n", config->name.c_str(), width, height, bpp);
 
@@ -179,7 +198,7 @@ void cDriverVUPLUS4K::SetPixel(int x, int y, uint32_t data)
 	red = (data & 0x00FF0000) >> 16;
 
 	unsigned char* row_pointers_bit_shift = (unsigned char*) &newLCD[0];
-	int row_pointers_2_ptr = (y * width + x) * 4;
+	int row_pointers_2_ptr = (y * width + x) * stride_bpp_value;
 
  	if (config->invert) {
 		blue = 255 - blue;
@@ -204,7 +223,7 @@ void cDriverVUPLUS4K::Refresh(bool refreshAll)
 	if (CheckSetup() > 0)
 		refreshAll = true;
 
-	for (i = 0; i < width * height * 4; i++)
+	for (i = 0; i < height * stride; i++)
 	{
 		if (newLCD[i] != oldLCD[i])
 		{
@@ -215,13 +234,13 @@ void cDriverVUPLUS4K::Refresh(bool refreshAll)
 
 	if (refreshAll)
 	{
-		for (i = 0; i < width * height * 4; i++)
+		for (i = 0; i < height * stride; i++)
 		{
 			oldLCD[i] = newLCD[i];
 		}
 		unsigned char* row_pointers_bit_shift = (unsigned char*) &newLCD[0];
 		{
-			write(fd, row_pointers_bit_shift, height * width * 4);
+			write(fd, row_pointers_bit_shift, height * stride);
 		}
 	}
 }

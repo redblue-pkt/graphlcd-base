@@ -40,6 +40,8 @@ private:
 	uint16_t * newLCD;
 	uint16_t * oldLCD;
 	int bpp;
+	int stride;
+	int stride_bpp_value;
 
 	int CheckSetup();
 

@@ -17,7 +17,6 @@
 #include <syslog.h>
 #include <unistd.h>
 #include <pthread.h>
-#include <sys/io.h>
 #include <sys/ioctl.h>
 #include <linux/ppdev.h>
 #include <linux/parport.h>

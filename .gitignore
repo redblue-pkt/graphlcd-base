@@ -1,6 +1,10 @@
 *.d
 *.o
 *.so*
+
+*.rej
+*.orig
+
 tools/convpic/convpic
 tools/crtfont/crtfont
 tools/genfont/genfont
@@ -11,3 +15,18 @@ tools/skintest/skintest
 
 git-*
 go_*
+
+depcomp
+config.sub
+install-sh
+INSTALL
+missing
+compile
+config.guess
+config.hin*
+configure
+aclocal.m4
+Makefile.in
+m4
+ltmain.sh
+

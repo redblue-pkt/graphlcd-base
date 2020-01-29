@@ -11,7 +11,9 @@
  */
 
 #include <syslog.h>
-#include <cstring>
+
+#include <string.h>
+
 #include "skin.h"
 #include "function.h"
 

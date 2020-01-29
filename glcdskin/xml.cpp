@@ -15,7 +15,7 @@
 #include <iostream>
 #include <fstream>
 
-#include <cstring>
+#include <string.h>
 #include <stdlib.h>
 
 #include "xml.h"

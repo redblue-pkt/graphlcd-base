@@ -15,10 +15,8 @@
 #include <glcdgraphics/extformats.h>
 
 #include <stdlib.h>
-#include <string.h>
-
 #include <syslog.h>
-
+#include <cstring>
 #include "cache.h"
 #include "skin.h"
 

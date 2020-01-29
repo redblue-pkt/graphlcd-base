@@ -18,7 +18,7 @@
 #include "display.h"
 #include "font.h"
 #include "type.h"
-#include "string.h"
+#include "skinstring.h"
 #include "cache.h"
 #include "config.h"
 #include "variable.h"

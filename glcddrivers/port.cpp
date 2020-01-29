@@ -12,6 +12,9 @@
 
 #include <errno.h>
 #include <fcntl.h>
+#if  !(__arm__)
+#include <sys/io.h>
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <syslog.h>

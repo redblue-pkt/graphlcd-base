@@ -74,9 +74,7 @@ public:
     virtual void Refresh(bool refreshAll = false) {}
 
     virtual void SetBrightness(unsigned int percent) {}
-#ifdef HAVE_DRIVER_VUPLUS4K
     virtual void SetMirrorVideo(bool mirror) {}
-#endif
 
     virtual bool SetFeature  (const std::string & Feature, int value)   { return false; }
 

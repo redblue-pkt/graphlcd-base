@@ -57,6 +57,7 @@ public:
 	//virtual void Set8Pixels(int x, int y, unsigned char data);
 	virtual void Refresh(bool refreshAll = false);
 	virtual void SetBrightness(unsigned int percent);
+	virtual void SetMirrorVideo(bool mirror);
 };
 
 } // end of namespace

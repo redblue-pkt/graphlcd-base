@@ -261,4 +261,22 @@ void cDriverVUPLUS4K::SetBrightness(unsigned int brightness)
 	}
 }
 
+void cDriverVUPLUS4K::SetMirrorVideo(bool mirror)
+{
+	const char *value = "";
+
+	if (mirror)
+		value = "enable";
+	else
+		value = "disable";
+
+	FILE *f = fopen("/proc/stb/lcd/live_enable", "w");
+	if (f)
+	{
+		if (fprintf(f, "%s", value) == 0)
+			printf("write /proc/stb/lcd/live_enable failed!! (%m)\n");
+		fclose(f);
+	}
+}
+
 } // end of namespace

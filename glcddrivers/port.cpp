@@ -12,7 +12,7 @@
 
 #include <errno.h>
 #include <fcntl.h>
-#if  !(__arm__)
+#if  !(__arm__) && !(__aarch64__)
 #include <sys/io.h>
 #endif
 #include <stdio.h>

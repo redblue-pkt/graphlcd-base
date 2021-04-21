@@ -85,6 +85,9 @@
 #ifdef HAVE_DRIVER_VUPLUS4K
 #include "vuplus4k.h"
 #endif
+#ifdef HAVE_DRIVER_ILI9486FB
+#include "ili9486_fb.h"
+#endif
 
 namespace GLCD
 {
@@ -163,6 +166,9 @@ tDriver drivers[] =
 #endif
 #ifdef HAVE_DRIVER_VUPLUS4K
     {"vuplus4k",      kDriverVUPLUS4K},
+#endif
+#ifdef HAVE_DRIVER_ILI9486FB
+    {"ili9486fb",       kDriverILI9486FB},
 #endif
     {"",              kDriverUnknown}
 };
@@ -285,6 +291,10 @@ cDriver * CreateDriver(int driverID, cDriverConfig * config)
 #ifdef HAVE_DRIVER_VUPLUS4K
         case kDriverVUPLUS4K:
             return new cDriverVUPLUS4K(config);
+#endif
+#ifdef HAVE_DRIVER_ILI9486FB
+        case kDriverILI9486FB:
+            return new cDriverILI9486FB(config);
 #endif
         case kDriverUnknown:
         default:

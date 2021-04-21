@@ -200,6 +200,15 @@ AC_ARG_ENABLE([driver-ili9341],
 	fi
 	AM_CONDITIONAL([HAVE_DRIVER_ILI9341], test "$am_driver_ili9341" = "yes")
 
+AC_ARG_ENABLE([driver-ili9486fb],
+	AS_HELP_STRING(--enable-driver-ili9486fb,enable driver ili9486fb),
+	[case "${enableval}" in yes | "") am_driver_ili9486fb=yes ;; no) am_driver_ili9486fb=no ;; *) am_driver_ili9486fb=yes ;; esac], [am_driver_ili9486fb=no])
+	if test "$am_driver_ili9486fb" = "yes"; then
+		AC_DEFINE(HAVE_DRIVER_ILI9486FB, 1, [Define ili9486fb driver])
+		AC_SUBST(MY_ILI9486FB_CPPFLAGS,-DHAVE_DRIVER_ILI9486FB)
+	fi
+	AM_CONDITIONAL([HAVE_DRIVER_ILI9486FB], test "$am_driver_ili9486fb" = "yes")
+
 AC_ARG_ENABLE([driver-ks0108],
 	AS_HELP_STRING(--enable-driver-ks0108,enable driver ks0108),
 	[case "${enableval}" in yes | "") am_driver_ks0108=yes ;; no) am_driver_ks0108=no ;; *) am_driver_ks0108=no ;; esac], [am_driver_ks0108=no])

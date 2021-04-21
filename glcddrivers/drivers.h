@@ -93,6 +93,9 @@ enum eDriver
 #ifdef HAVE_DRIVER_ST7565REEL
     kDriverST7565RReel   = 25,
 #endif
+#ifdef HAVE_DRIVER_ILI9486FB
+    kDriverILI9486FB     = 26,
+#endif
     kDriverSerDisp       = 100,
 #ifdef HAVE_DRIVER_G15DAEMON
     kDriverG15daemon     = 200

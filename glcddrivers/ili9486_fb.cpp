@@ -1,7 +1,7 @@
 /*
  * GraphLCD driver library
  *
- * vuplus4k.c  -  VUPLUS4K OLED driver class (vusolo4k, vuduo4k)
+ * ili9486_fb.c  -  ILI9486 FB OLED driver class
  *
  * This file is released under the GNU General Public License. Refer
  * to the COPYING file distributed with this package.
